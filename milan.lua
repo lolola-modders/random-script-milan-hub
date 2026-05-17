@@ -1,6 +1,6 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Window = Rayfield:CreateWindow({
-   Name = "mradol script hub",
+   Name = "KDR script hub",
    Icon = 0,
    LoadingTitle = "loading . . .",
    LoadingSubtitle = "by mradol",
@@ -168,11 +168,11 @@ local function toggleInfiniteNight(state)
             Lighting.GlobalShadows = false
         end)
         Lighting.ClockTime = 0
-        Rayfield:Notify({Title = "99 Nuit", Content = "Mode nuit permanent activé", Duration = 3})
+        Rayfield:Notify({Title = "99 Nuit", Content = "Mode nuit permanent activÃ©", Duration = 3})
     else
         if nightLoop then nightLoop:Disconnect() nightLoop = nil end
         Lighting.ClockTime = 12
-        Rayfield:Notify({Title = "99 Nuit", Content = "Mode nuit désactivé", Duration = 3})
+        Rayfield:Notify({Title = "99 Nuit", Content = "Mode nuit dÃ©sactivÃ©", Duration = 3})
     end
 end
 
@@ -180,7 +180,7 @@ end
 local function TeleportTo(targetPlayer)
     if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
         rootpart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, 3, 0)
-        Rayfield:Notify({Title = "Téléportation", Content = "Téléporté vers " .. targetPlayer.Name, Duration = 3})
+        Rayfield:Notify({Title = "TÃ©lÃ©portation", Content = "TÃ©lÃ©portÃ© vers " .. targetPlayer.Name, Duration = 3})
     end
 end
 
@@ -188,9 +188,9 @@ local function TeleportToSpawn()
     local spawn = workspace:FindFirstChild("SpawnLocation") or workspace:FindFirstChildWhichIsA("SpawnLocation")
     if spawn then
         rootpart.CFrame = spawn.CFrame + Vector3.new(0, 5, 0)
-        Rayfield:Notify({Title = "Téléportation", Content = "Tu as été téléporté au Spawn", Duration = 3})
+        Rayfield:Notify({Title = "TÃ©lÃ©portation", Content = "Tu as Ã©tÃ© tÃ©lÃ©portÃ© au Spawn", Duration = 3})
     else
-        Rayfield:Notify({Title = "Erreur", Content = "Aucun SpawnLocation trouvé", Duration = 4})
+        Rayfield:Notify({Title = "Erreur", Content = "Aucun SpawnLocation trouvÃ©", Duration = 4})
     end
 end
 
@@ -205,9 +205,9 @@ local function TeleportToRandom()
         local randomPart = parts[math.random(1, #parts)]
         local randomOffset = Vector3.new(math.random(-10,10), 5, math.random(-10,10))
         rootpart.CFrame = randomPart.CFrame + randomOffset
-        Rayfield:Notify({Title = "Téléportation Aléatoire", Content = "Tu as été téléporté à un endroit aléatoire", Duration = 3})
+        Rayfield:Notify({Title = "TÃ©lÃ©portation AlÃ©atoire", Content = "Tu as Ã©tÃ© tÃ©lÃ©portÃ© Ã  un endroit alÃ©atoire", Duration = 3})
     else
-        Rayfield:Notify({Title = "Erreur", Content = "Aucun endroit trouvé", Duration = 4})
+        Rayfield:Notify({Title = "Erreur", Content = "Aucun endroit trouvÃ©", Duration = 4})
     end
 end
 
@@ -218,7 +218,7 @@ for _, plr in pairs(game.Players:GetPlayers()) do
 end
 
 local TeleportDropdown = MainTab:CreateDropdown({
-   Name = "Téléport vers Joueur",
+   Name = "TÃ©lÃ©port vers Joueur",
    Options = playerList,
    CurrentOption = {""},
    Flag = "TeleportDropdown",
@@ -235,7 +235,7 @@ local RefreshButton = MainTab:CreateButton({
         for _, plr in pairs(game.Players:GetPlayers()) do
             if plr ~= player then table.insert(playerList, plr.Name) end
         end
-        Rayfield:Notify({Title = "Liste actualisée", Content = "La liste a été mise à jour", Duration = 2})
+        Rayfield:Notify({Title = "Liste actualisÃ©e", Content = "La liste a Ã©tÃ© mise Ã  jour", Duration = 2})
    end,
 })
 
@@ -245,7 +245,7 @@ local SpawnButton = MainTab:CreateButton({
 })
 
 local RandomTPButton = MainTab:CreateButton({
-   Name = "?? TP Aléatoire",
+   Name = "?? TP AlÃ©atoire",
    Callback = function() TeleportToRandom() end,
 })
 
@@ -261,7 +261,7 @@ local NoclipToggle = MainTab:CreateToggle({
 })
 
 local AimbotToggle = MainTab:CreateToggle({
-   Name = "Aimbot (Visée Auto)", CurrentValue = false, Flag = "AimbotToggle",
+   Name = "Aimbot (VisÃ©e Auto)", CurrentValue = false, Flag = "AimbotToggle",
    Callback = function(Value) toggleAimbot(Value) end,
 })
 
@@ -293,4 +293,4 @@ player.CharacterAdded:Connect(function(newChar)
     end
 end)
 
-print("? Script Hub chargé avec 99 Nuit ajouté !")
+print("? Script Hub chargÃ© avec 99 Nuit ajoutÃ© !")
