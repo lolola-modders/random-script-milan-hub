@@ -1,3 +1,40 @@
+chiro le pd
+mradol
++1
+
+#111 — Hier à 14:31
+tfl
+tgl
+tgl pd
+tgl pd
+tgl pd
+tgl pd
+tgl pd
+tgl pd
+tgl pd
+tgl pd
+tgl pdtgl pd
+tgl pd
+tgl pd
+tgl pdtgl pd
+chiro le pd — Hier à 14:31
+pk
+@#111
+@#111
+@#111
+@#111
+@#111
+@#111
+@#111
+@#111
+@#111
+@#111
+@#111
+@#111
+@#111@#111@#111@#111@#111@#111
+@#111
+@#111@#111@#111
+#111 — 14:08
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Window = Rayfield:CreateWindow({
    Name = "mradol script hub",
@@ -27,7 +64,7 @@ local Window = Rayfield:CreateWindow({
       FileName = "Key",
       SaveKey = true,
       GrabKeyFromSite = false,
-      Key = {"lesprime", "LESPRIME"}
+      Key = {"milan", "MILAN"}
    }
 })
 
@@ -39,7 +76,7 @@ local UIS = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
 local Lighting = game:GetService("Lighting")
 
-local flySpeed = 1000          -- ← Changé à 1000
+local flySpeed = 1000
 local flying = false
 local noclipping = false
 local aimbot = false
@@ -60,23 +97,19 @@ local function startFly()
     flying = true
     if bv then bv:Destroy() end
     if bg then bg:Destroy() end
- 
     bv = Instance.new("BodyVelocity")
     bv.MaxForce = Vector3.new(1e5, 1e5, 1e5)
     bv.Parent = rootpart
- 
     bg = Instance.new("BodyGyro")
     bg.MaxTorque = Vector3.new(1e5, 1e5, 1e5)
     bg.P = 12500
     bg.Parent = rootpart
- 
     humanoid.PlatformStand = true
- 
     flyConnection = RunService.Heartbeat:Connect(function()
         if not flying then return end
         local camera = workspace.CurrentCamera
         local moveDir = Vector3.new()
-     
+  
         if UIS:IsKeyDown(Enum.KeyCode.W) then moveDir += camera.CFrame.LookVector end
         if UIS:IsKeyDown(Enum.KeyCode.S) then moveDir -= camera.CFrame.LookVector end
         if UIS:IsKeyDown(Enum.KeyCode.A) then moveDir -= camera.CFrame.RightVector end
@@ -85,11 +118,11 @@ local function startFly()
         if UIS:IsKeyDown(Enum.KeyCode.LeftControl) or UIS:IsKeyDown(Enum.KeyCode.C) then
             moveDir -= Vector3.new(0,1,0)
         end
-     
+  
         if moveDir.Magnitude > 0 then
             moveDir = moveDir.Unit
         end
-     
+  
         bv.Velocity = moveDir * flySpeed
         bg.CFrame = camera.CFrame
     end)
@@ -101,6 +134,149 @@ local function stopFly()
     if bv then bv:Destroy() bv = nil end
     if bg then bg:Destroy() bg = nil end
     if humanoid then humanoid.PlatformStand = false end
+end
+... (173lignes restantes)
+
+message.txt
+11 Ko
+﻿@#111
+﻿﻿@#111
+﻿﻿@#111
+﻿﻿
+#111
+kdr34k
+ 
+:YouTube: 270:YouTube:
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Window = Rayfield:CreateWindow({
+   Name = "mradol script hub",
+   Icon = 0,
+   LoadingTitle = "loading . . .",
+   LoadingSubtitle = "by mradol",
+   ShowText = "Rayfield",
+   Theme = "Default",
+   ToggleUIKeybind = "p",
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false,
+   ConfigurationSaving = {
+      Enabled = false,
+      FolderName = nil,
+      FileName = "Big Hub"
+   },
+   Discord = {
+      Enabled = true,
+      Invite = "Wbskq4scD",
+      RememberJoins = true
+   },
+   KeySystem = true,
+   KeySettings = {
+      Title = "key",
+      Subtitle = "Key",
+      Note = "join the discord https://discord.gg/Wbskq4scD",
+      FileName = "Key",
+      SaveKey = true,
+      GrabKeyFromSite = false,
+      Key = {"milan", "MILAN"}
+   }
+})
+
+local MainTab = Window:CreateTab("Main", 4483362458)
+
+-- ====================== VARIABLES ======================
+local player = game.Players.LocalPlayer
+local UIS = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+local Lighting = game:GetService("Lighting")
+
+local flySpeed = 1000
+local flying = false
+local noclipping = false
+local aimbot = false
+local infiniteNight = false
+
+local flyConnection = nil
+local noclipLoop = nil
+local aimbotLoop = nil
+local nightLoop = nil
+local bv, bg = nil, nil
+
+local character = player.Character or player.CharacterAdded:Wait()
+local rootpart = character:WaitForChild("HumanoidRootPart")
+local humanoid = character:WaitForChild("Humanoid")
+
+-- ====================== FLY ======================
+local function startFly()
+    flying = true
+    if bv then bv:Destroy() end
+    if bg then bg:Destroy() end
+    bv = Instance.new("BodyVelocity")
+    bv.MaxForce = Vector3.new(1e5, 1e5, 1e5)
+    bv.Parent = rootpart
+    bg = Instance.new("BodyGyro")
+    bg.MaxTorque = Vector3.new(1e5, 1e5, 1e5)
+    bg.P = 12500
+    bg.Parent = rootpart
+    humanoid.PlatformStand = true
+    flyConnection = RunService.Heartbeat:Connect(function()
+        if not flying then return end
+        local camera = workspace.CurrentCamera
+        local moveDir = Vector3.new()
+  
+        if UIS:IsKeyDown(Enum.KeyCode.W) then moveDir += camera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then moveDir -= camera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then moveDir -= camera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then moveDir += camera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.Space) then moveDir += Vector3.new(0,1,0) end
+        if UIS:IsKeyDown(Enum.KeyCode.LeftControl) or UIS:IsKeyDown(Enum.KeyCode.C) then
+            moveDir -= Vector3.new(0,1,0)
+        end
+  
+        if moveDir.Magnitude > 0 then
+            moveDir = moveDir.Unit
+        end
+  
+        bv.Velocity = moveDir * flySpeed
+        bg.CFrame = camera.CFrame
+    end)
+end
+
+local function stopFly()
+    flying = false
+    if flyConnection then flyConnection:Disconnect() end
+    if bv then bv:Destroy() bv = nil end
+    if bg then bg:Destroy() bg = nil end
+    if humanoid then humanoid.PlatformStand = false end
+end
+
+-- ====================== NO DELAY SUR E ======================
+UIS.InputBegan:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    if not flying then return end
+    if input.KeyCode == Enum.KeyCode.E then
+        local tool = player.Character and player.Character:FindFirstChildOfClass("Tool")
+        if tool then
+            tool:Activate()
+            task.wait(0.05)
+            tool:Activate()
+        end
+    end
+end)
+
+-- ====================== KICK & BAN ======================
+local function SelfKick()
+    Rayfield:Notify({Title = "Kick", Content = "Tu vas être kick dans 1 seconde...", Duration = 1})
+    wait(1)
+    player:Kick("Kicked by mradol script hub")
+end
+
+local function SelfBan()
+    Rayfield:Notify({
+        Title = "BAN",
+        Content = "Tu vas être banni dans 2 secondes...",
+        Duration = 2
+    })
+    wait(2)
+    player:Kick("You have been banned for exploiting.")
 end
 
 -- ====================== NOCLIP ULTRA ======================
@@ -136,7 +312,6 @@ local function toggleAimbot(state)
             if not aimbot then return end
             local closest = nil
             local shortestDistance = math.huge
-         
             for _, plr in pairs(game.Players:GetPlayers()) do
                 if plr ~= player and plr.Character and plr.Character:FindFirstChild("Head") then
                     local distance = (rootpart.Position - plr.Character.Head.Position).Magnitude
@@ -146,7 +321,6 @@ local function toggleAimbot(state)
                     end
                 end
             end
-         
             if closest then
                 workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, closest.Position)
             end
@@ -168,11 +342,9 @@ local function toggleInfiniteNight(state)
             Lighting.GlobalShadows = false
         end)
         Lighting.ClockTime = 0
-        Rayfield:Notify({Title = "99 Nuit", Content = "Mode nuit permanent activé", Duration = 3})
     else
         if nightLoop then nightLoop:Disconnect() nightLoop = nil end
         Lighting.ClockTime = 12
-        Rayfield:Notify({Title = "99 Nuit", Content = "Mode nuit désactivé", Duration = 3})
     end
 end
 
@@ -211,88 +383,40 @@ local function TeleportToRandom()
     end
 end
 
--- ====================== TELEPORT UI ======================
+-- ====================== UI ======================
+local FlyToggle = MainTab:CreateToggle({Name = "Fly", CurrentValue = false, Flag = "FlyToggle", Callback = function(Value) if Value then startFly() else stopFly() end end})
+local NoclipToggle = MainTab:CreateToggle({Name = "Noclip (Ultra)", CurrentValue = false, Flag = "NoclipToggle", Callback = function(Value) toggleNoclip(Value) end})
+local AimbotToggle = MainTab:CreateToggle({Name = "Aimbot (Visée Auto)", CurrentValue = false, Flag = "AimbotToggle", Callback = function(Value) toggleAimbot(Value) end})
+local NightToggle = MainTab:CreateToggle({Name = "🌙 99 Nuit", CurrentValue = false, Flag = "NightToggle", Callback = function(Value) toggleInfiniteNight(Value) end})
+
+local KickButton = MainTab:CreateButton({
+   Name = "🚪 Kick Yourself",
+   Callback = function() SelfKick() end,
+})
+
+local BanButton = MainTab:CreateButton({
+   Name = "⛔ Ban Yourself",
+   Callback = function() SelfBan() end,
+})
+
+local SpeedSlider = MainTab:CreateSlider({
+   Name = "Fly Speed",
+   Range = {10, 2000},
+   Increment = 10,
+   Suffix = " studs/s",
+   CurrentValue = 1000,
+   Flag = "FlySpeedSlider",
+   Callback = function(Value) flySpeed = Value end,
+})
+
+-- Téléport UI
 local playerList = {}
 for _, plr in pairs(game.Players:GetPlayers()) do
     if plr ~= player then table.insert(playerList, plr.Name) end
 end
 
-local TeleportDropdown = MainTab:CreateDropdown({
-   Name = "Téléport vers Joueur",
-   Options = playerList,
-   CurrentOption = {""},
-   Flag = "TeleportDropdown",
-   Callback = function(Selected)
-        local target = game.Players:FindFirstChild(Selected[1])
-        if target then TeleportTo(target) end
-   end,
-})
+local TeleportDropdown = MainTab:CreateDropdown({Name = "Téléport vers Joueur", Options = playerList, CurrentOption = {""}, Flag = "TeleportDropdown", Callback = function(Selected) local target = game.Players:FindFirstChild(Selected[1]) if target then TeleportTo(target) end end})
+local SpawnButton = MainTab:CreateButton({Name = "🏠 TP to Spawn", Callback = function() TeleportToSpawn() end})
+local RandomTPButton = MainTab:CreateButton({Name = "🎲 TP Aléatoire", Callback = function() TeleportToRandom() end})
 
-local RefreshButton = MainTab:CreateButton({
-   Name = "🔄 Actualiser Liste des Joueurs",
-   Callback = function()
-        playerList = {}
-        for _, plr in pairs(game.Players:GetPlayers()) do
-            if plr ~= player then table.insert(playerList, plr.Name) end
-        end
-        Rayfield:Notify({Title = "Liste actualisée", Content = "La liste a été mise à jour", Duration = 2})
-   end,
-})
-
-local SpawnButton = MainTab:CreateButton({
-   Name = "🏠 TP to Spawn",
-   Callback = function() TeleportToSpawn() end,
-})
-
-local RandomTPButton = MainTab:CreateButton({
-   Name = "🎲 TP Aléatoire",
-   Callback = function() TeleportToRandom() end,
-})
-
--- ====================== UI ======================
-local FlyToggle = MainTab:CreateToggle({
-   Name = "Fly", CurrentValue = false, Flag = "FlyToggle",
-   Callback = function(Value) if Value then startFly() else stopFly() end end,
-})
-
-local NoclipToggle = MainTab:CreateToggle({
-   Name = "Noclip (Ultra)", CurrentValue = false, Flag = "NoclipToggle",
-   Callback = function(Value) toggleNoclip(Value) end,
-})
-
-local AimbotToggle = MainTab:CreateToggle({
-   Name = "Aimbot (Visée Auto)", CurrentValue = false, Flag = "AimbotToggle",
-   Callback = function(Value) toggleAimbot(Value) end,
-})
-
-local NightToggle = MainTab:CreateToggle({
-   Name = "🌙 99 Nuit (Infinite Night)",
-   CurrentValue = false,
-   Flag = "NightToggle",
-   Callback = function(Value) toggleInfiniteNight(Value) end,
-})
-
-local SpeedSlider = MainTab:CreateSlider({
-   Name = "Fly Speed",
-   Range = {10, 2000},      -- Max augmenté pour aller très vite
-   Increment = 10,
-   Suffix = " studs/s",
-   CurrentValue = 1000,     -- ← Vitesse par défaut à 1000
-   Flag = "FlySpeedSlider",
-   Callback = function(Value) flySpeed = Value end,
-})
-
--- ====================== Respawn Support ======================
-player.CharacterAdded:Connect(function(newChar)
-    character = newChar
-    rootpart = newChar:WaitForChild("HumanoidRootPart")
-    humanoid = newChar:WaitForChild("Humanoid")
-    wait(0.6)
-    if noclipping then
-        toggleNoclip(false)
-        wait(0.1)
-        toggleNoclip(true)
-    end
-end)
-
-print("✅ Script Hub chargé - Fly à 1000 par défaut !")
+print("✅ Script Hub chargé avec Ban Yourself ajouté !")
