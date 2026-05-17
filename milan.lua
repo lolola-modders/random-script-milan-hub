@@ -1,6 +1,6 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Window = Rayfield:CreateWindow({
-   Name = "KDR script hub",
+   Name = "mradol script hub",
    Icon = 0,
    LoadingTitle = "loading . . .",
    LoadingSubtitle = "by mradol",
@@ -39,7 +39,7 @@ local UIS = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
 local Lighting = game:GetService("Lighting")
 
-local flySpeed = 60
+local flySpeed = 1000          -- ← Changé à 1000
 local flying = false
 local noclipping = false
 local aimbot = false
@@ -60,23 +60,23 @@ local function startFly()
     flying = true
     if bv then bv:Destroy() end
     if bg then bg:Destroy() end
-  
+ 
     bv = Instance.new("BodyVelocity")
     bv.MaxForce = Vector3.new(1e5, 1e5, 1e5)
     bv.Parent = rootpart
-  
+ 
     bg = Instance.new("BodyGyro")
     bg.MaxTorque = Vector3.new(1e5, 1e5, 1e5)
     bg.P = 12500
     bg.Parent = rootpart
-  
+ 
     humanoid.PlatformStand = true
-  
+ 
     flyConnection = RunService.Heartbeat:Connect(function()
         if not flying then return end
         local camera = workspace.CurrentCamera
         local moveDir = Vector3.new()
-      
+     
         if UIS:IsKeyDown(Enum.KeyCode.W) then moveDir += camera.CFrame.LookVector end
         if UIS:IsKeyDown(Enum.KeyCode.S) then moveDir -= camera.CFrame.LookVector end
         if UIS:IsKeyDown(Enum.KeyCode.A) then moveDir -= camera.CFrame.RightVector end
@@ -85,11 +85,11 @@ local function startFly()
         if UIS:IsKeyDown(Enum.KeyCode.LeftControl) or UIS:IsKeyDown(Enum.KeyCode.C) then
             moveDir -= Vector3.new(0,1,0)
         end
-      
+     
         if moveDir.Magnitude > 0 then
             moveDir = moveDir.Unit
         end
-      
+     
         bv.Velocity = moveDir * flySpeed
         bg.CFrame = camera.CFrame
     end)
@@ -136,7 +136,7 @@ local function toggleAimbot(state)
             if not aimbot then return end
             local closest = nil
             local shortestDistance = math.huge
-          
+         
             for _, plr in pairs(game.Players:GetPlayers()) do
                 if plr ~= player and plr.Character and plr.Character:FindFirstChild("Head") then
                     local distance = (rootpart.Position - plr.Character.Head.Position).Magnitude
@@ -146,7 +146,7 @@ local function toggleAimbot(state)
                     end
                 end
             end
-          
+         
             if closest then
                 workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, closest.Position)
             end
@@ -156,7 +156,7 @@ local function toggleAimbot(state)
     end
 end
 
--- ====================== 99 NUIT (Infinite Night) ======================
+-- ====================== 99 NUIT ======================
 local function toggleInfiniteNight(state)
     infiniteNight = state
     if infiniteNight then
@@ -229,7 +229,7 @@ local TeleportDropdown = MainTab:CreateDropdown({
 })
 
 local RefreshButton = MainTab:CreateButton({
-   Name = "?? Actualiser Liste des Joueurs",
+   Name = "🔄 Actualiser Liste des Joueurs",
    Callback = function()
         playerList = {}
         for _, plr in pairs(game.Players:GetPlayers()) do
@@ -240,16 +240,16 @@ local RefreshButton = MainTab:CreateButton({
 })
 
 local SpawnButton = MainTab:CreateButton({
-   Name = "?? TP to Spawn",
+   Name = "🏠 TP to Spawn",
    Callback = function() TeleportToSpawn() end,
 })
 
 local RandomTPButton = MainTab:CreateButton({
-   Name = "?? TP Aléatoire",
+   Name = "🎲 TP Aléatoire",
    Callback = function() TeleportToRandom() end,
 })
 
--- ====================== UI Toggles ======================
+-- ====================== UI ======================
 local FlyToggle = MainTab:CreateToggle({
    Name = "Fly", CurrentValue = false, Flag = "FlyToggle",
    Callback = function(Value) if Value then startFly() else stopFly() end end,
@@ -266,17 +266,19 @@ local AimbotToggle = MainTab:CreateToggle({
 })
 
 local NightToggle = MainTab:CreateToggle({
-   Name = "?? 99 Nuit (Infinite Night)",
+   Name = "🌙 99 Nuit (Infinite Night)",
    CurrentValue = false,
    Flag = "NightToggle",
-   Callback = function(Value)
-        toggleInfiniteNight(Value)
-   end,
+   Callback = function(Value) toggleInfiniteNight(Value) end,
 })
 
 local SpeedSlider = MainTab:CreateSlider({
-   Name = "Fly Speed", Range = {10, 200}, Increment = 5, Suffix = " studs/s",
-   CurrentValue = 60, Flag = "FlySpeedSlider",
+   Name = "Fly Speed",
+   Range = {10, 2000},      -- Max augmenté pour aller très vite
+   Increment = 10,
+   Suffix = " studs/s",
+   CurrentValue = 1000,     -- ← Vitesse par défaut à 1000
+   Flag = "FlySpeedSlider",
    Callback = function(Value) flySpeed = Value end,
 })
 
@@ -293,4 +295,4 @@ player.CharacterAdded:Connect(function(newChar)
     end
 end)
 
-print("? Script Hub chargé avec 99 Nuit ajouté !")
+print("✅ Script Hub chargé - Fly à 1000 par défaut !")
